@@ -1,25 +1,42 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
+import { useAppContext } from '../context/app_context';
+import {GiHamburgerMenu} from "react-icons/gi"
 import cyber from '../assets/cyber.png'
 import gaming from '../assets/gaming.png'
-import avatar2 from '../assets/avatar2.png'
-import avatar6 from '../assets/avatar6.png'
-import avatar12 from '../assets/avatar12.png'
+import player1 from '../assets/player1.png'
+import player2 from '../assets/player2.png'
+import player3 from '../assets/player3.png'
+import axe from '../assets/axe.png'
+import sword from '../assets/sword.png'
+import fleau from '../assets/fleau.png'
+
 
 import 'bootstrap/dist/css/bootstrap.css';
-import Carousel from 'react-bootstrap/Carousel';
 import {GiBroadsword} from "react-icons/gi";
 import {GiHeavyArrow} from "react-icons/gi";
 import {GiFireAxe} from "react-icons/gi";
 
+import ReactDOM from 'react-dom';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+
+
 const Home = () => {
 
+  const {OpenSidebar}= useAppContext();
+
     return (
-        <Wrapper>  
+        <Wrapper> 
+            <div class="burgermenu">
+                    <button className="open-btn" type="button" onClick={OpenSidebar}>
+                          <GiHamburgerMenu />
+                    </button>
+            </div> 
             <div class="homepage" >
                 <div class="hometext"> 
             <h1 class="title"> Check out our new avatars </h1>
-            <h2> We just released new characters with special designs and features, be among the firsts to get them now !</h2>
+            <h2> We just released new characters with special designs and features, be among the first to get them now !</h2>
             <button class="btn"> Discover</button>
                 </div>
             </div>
@@ -27,79 +44,55 @@ const Home = () => {
             <div class="divplayers">
             <h3> Our new custom players </h3>
             <hr class="line"></hr>
-      <Carousel>
-        <Carousel.Item interval={2000}>
-          <img
-            className="d-block w-100"
-            src={avatar2}
-            alt="Image One"
-          />
-          <Carousel.Caption>
+          </div>
 
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item interval={2000}>
-          <img
-            className="d-block w-100"
-            src={avatar6}
-            alt="Image Two"
-          />
-          <Carousel.Caption>
-
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item interval={2500}>
-          <img
-            className="d-block w-100"
-            src={avatar12}
-            alt="Image Three"
-          />
-          <Carousel.Caption>
-
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
-          </div> 
+          <Carousel class="carrousel">
+              <div>
+                  <img class="image" src={player1} />
+                  <p className="legend">Legend 1</p>
+              </div>
+              <div>
+                <img class="image" src={player2}/>
+                <p className="legend">Legend 2</p>
+              </div>
+              <div>
+                <img class="image" src={player3} />
+                <p className="legend">Legend 3</p>
+              </div>
+            </Carousel> 
           
 
 
           <div class="card-deck">
   <div class="card">
-      <GiFireAxe class="icones" size="40px"/>
+          <img src= {axe}/>
     <div class="card-body">
       <h5 class="card-title">The Arche</h5>
       <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
-    <div class="card-footer">
-      <small class="text-muted"></small>
-    </div>
   </div>
   <div class="card">
-      <GiBroadsword class="icones" size="40px"/>
+      <img src= {sword}/>
     <div class="card-body">
       <h5 class="card-title">The Sword</h5>
       <p class="card-text"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
     </div>
-    <div class="card-footer">
-      <small class="text-muted"></small>
-    </div>
+
   </div>
   <div class="card">
-    <GiHeavyArrow class="icones" size="40px"/>
+    <img src= {fleau}/>
     <div class="card-body">
       <h5 class="card-title">Fleau</h5>
       <p class="card-text"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
     </div>
-    <div class="card-footer">
-      <small class="text-muted"></small>
-    </div>
+
   </div>
 </div>
           <div class="joinus">
-            <h2> JOIN US AND GET SOME TIPS</h2>
+            <h2> Join us and get some tips !</h2>
             <div class="email">
             <p>  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <input class="mail" type="text" value="Enter e-mail" />
+            <input class="mail" type="text" value="Enter your e-mail" width="100px" />
             </div>
           </div>
      
@@ -132,6 +125,8 @@ h2{
     font-weight:bold;
     font-size:32px;
     background-color:white;
+    box-shadow: 5px 5px 5px grey;
+
 }
 
 .homepage{
@@ -162,7 +157,8 @@ h2{
   display: flex;
   flex-direction:column;
   margin-left: 35%;
-  padding: 30px;
+  margin-toP: 20px; 
+  padding: 20px;
   width: 400px;
   background-color: black;
 }
@@ -178,6 +174,11 @@ h2{
   gap: 70px;
 }
 
+img{
+  width:60%;
+  margin-left:auto;
+  margin-right:auto;
+}
 .joinus{
   padding: 80px;
   height: 400px;
@@ -193,12 +194,14 @@ h2{
 }
 
 .email{
-  display:flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-colum: repeat(2,1fr);
+  grid-template-row: auto;
 }
 
 .icones{
   margin-left:45%;
+  backgroud-color:grey;
 }
 
 .card-title{
@@ -212,12 +215,73 @@ h2{
 .mail{
   width:400px;
   height:40px;
-  margin-right: 100px;
+  
 }
 
 h3{
   color: white;
+  font-size: 31px;
+  font-weight: bold;
 }
+
+.card{
+  box-shadow: 10px 10px 10px grey;
+
+.card-footer{
+  background-color:#C3C3C3;
+}
+
+.card-deck{
+  background-color:#C3C3C3;
+}
+
+.carrousel{
+  width: 200px;
+  height: 200px;
+  size:auto;
+}
+
+
+image{
+  width:200px;
+  height:200px;
+  size: 40px;
+}
+
+ul.thumbs.animated{
+  text-align:center;
+}
+
+.carousel .slider{
+  width: 500px;
+}
+
+
+
+@media only screen (max-width: 768px) {
+
+  .open-btn{
+    positions:relative;
+  }
+}
+
+@media only screen (min-width: 769px) and (max-width: 991px) {
+
+  .burgermenu{
+    display: block;
+  }
+}
+
+@media only screen (min-width: 992px) {
+
+  .burgermenu{
+    display: none;
+  }
+
+}
+
+
+
 `
 
 export default Home;

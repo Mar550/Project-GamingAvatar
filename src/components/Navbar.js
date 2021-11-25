@@ -9,11 +9,13 @@ import {GiHamburgerMenu} from "react-icons/gi"
 
 
 const Navbar = () => {
+    const {OpenSidebar}= useAppContext();
     return (
-        <Wrapper>
+        <Wrapper class="navbar">            
             <div className="logo">
                 <img class="imglogo" src={imga}/>
             </div>
+            
             <div>
                 <ul className="Links">
                     {
@@ -25,14 +27,21 @@ const Navbar = () => {
                             </li>);
                         })
                     }
-
-                </ul>
-            </div>
-            <div >
-                <button className="burgermenu">
-                    <GiHamburgerMenu/>
+                <div classname="burger" >
+                <button className="burgermenu" onClick={OpenSidebar}>
+                    <GiHamburgerMenu />
                 </button>
             </div>
+                </ul>
+                
+            </div>
+            <div className ="navsecond">  
+                    <div>
+                        <button className="burgermenu" onClick={OpenSidebar}>
+                        <GiHamburgerMenu />
+                        </button>
+                    </div>
+            </div>            
         </Wrapper> 
     )
 }
@@ -44,6 +53,7 @@ flex-direction:row;
 justify-content:space-around;
 align-items:center;
 width:100%;
+height:140px;
 border: 1px solid black;
 background: linear-gradient(#7F00FF,black);
 
@@ -62,10 +72,12 @@ ul{
 li{
     color: #0060B6;
     text-decoration: none;
+    margin-left: 30px;
 }
 .logo {
     width: 100px;
     heigth: 100px;
+    margin-left: -40px;
 }
 
 .imglogo{
@@ -74,26 +86,59 @@ li{
 }
 
 a {
-    color: black;
+    color: white;
     text-decoration: none;
     font-weight:bold;
     font-weight:bold;
-    font-size:19px;
+    font-size:24px;
+    gap: 10px;
 }
 
 a:hover {
-    color: grey; 
+    color: white; 
     text-decoration:none; 
     cursor:pointer;  
     font-weight:bold;
-    font-size:21px;
+    font-size:28px;
+    text-shadow: 1px 1px 2px grey;
 }
 
 .burgermenu{
     border-radius:50%;
-    font-size: 28px;
+    font-size: 30px;
     border: 1px solid black;
+    margin-left:200px;
 }
+
+
+
+
+@media only screen and (max-width: 768px) {
+    display:none;
+    .burgermenu{
+        display:block;
+    }
+
+}
+    
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+    display:none;
+    .burgermenu{
+        display:block;
+        text-align: right;
+
+    }
+}
+
+@media only screen and ( min-width: 992px) {
+
+    .burgermenu{
+        display:none;
+    }
+}
+
+
 
 `
 

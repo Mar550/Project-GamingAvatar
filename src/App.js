@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import {BrowserRouter as Router,Switch,Route
 } from 'react-router-dom'
 
@@ -22,8 +23,8 @@ import {
 function App() {
   return (
     <Router>
-      <Navbar/>
-      <Sidebar/>
+      <Navbar />
+      <Sidebar class="sidebar"/>
       <Switch>
         <Route exact path='/'>
           <Home/>
@@ -50,6 +51,10 @@ function App() {
     </Router>
   )
 }
+
+
+
+
 
 export default App;
 

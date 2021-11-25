@@ -5,7 +5,6 @@ import {
 
 
 const app_reducer = (state,actions) => {
-    console.log(`this is states ${state}`);
 
         //return {...state};
 
@@ -14,7 +13,11 @@ const app_reducer = (state,actions) => {
             return{...state, isSidebarOpen:true}
 
         }
-        throw new Error(`No action is matched in ${actions.type}`);
+
+        if (actions.type === SIDEBAR_CLOSE){
+            return {...state,isSidebarOpen:false}
+        }
+throw new Error(`No action is matched in ${actions.type}`);
  
 }
 
