@@ -39,7 +39,7 @@ const Sidebar = () => {
 }
 
 const Wrapper = styled.header`
-    background-color: grey;
+    background-color: #ededed;
     width:30%;
     height:600px;   
 

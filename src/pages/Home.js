@@ -8,6 +8,9 @@ import avatar12 from '../assets/avatar12.png'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
+import {GiBroadsword} from "react-icons/gi";
+import {GiHeavyArrow} from "react-icons/gi";
+import {GiFireAxe} from "react-icons/gi";
 
 const Home = () => {
 
@@ -21,8 +24,9 @@ const Home = () => {
                 </div>
             </div>
 
-            <div style={{ display: 'block', width: 300, padding: 30 }}>
-            <h4>React-Bootstrap Carousel Component</h4>
+            <div class="divplayers">
+            <h3> Our new custom players </h3>
+            <hr class="line"></hr>
       <Carousel>
         <Carousel.Item interval={2000}>
           <img
@@ -31,8 +35,7 @@ const Home = () => {
             alt="Image One"
           />
           <Carousel.Caption>
-            <h3>Label for first slide</h3>
-            <p>Sample Text for Image One</p>
+
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={2000}>
@@ -42,8 +45,7 @@ const Home = () => {
             alt="Image Two"
           />
           <Carousel.Caption>
-            <h3>Label for second slide</h3>
-            <p>Sample Text for Image Two</p>
+
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={2500}>
@@ -53,12 +55,53 @@ const Home = () => {
             alt="Image Three"
           />
           <Carousel.Caption>
-            <h3>Label for second slide</h3>
-            <p>Sample Text for Image Two</p>
+
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-    </div> 
+          </div> 
+          
+
+
+          <div class="card-deck">
+  <div class="card">
+      <GiFireAxe class="icones" size="40px"/>
+    <div class="card-body">
+      <h5 class="card-title">The Arche</h5>
+      <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted"></small>
+    </div>
+  </div>
+  <div class="card">
+      <GiBroadsword class="icones" size="40px"/>
+    <div class="card-body">
+      <h5 class="card-title">The Sword</h5>
+      <p class="card-text"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted"></small>
+    </div>
+  </div>
+  <div class="card">
+    <GiHeavyArrow class="icones" size="40px"/>
+    <div class="card-body">
+      <h5 class="card-title">Fleau</h5>
+      <p class="card-text"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted"></small>
+    </div>
+  </div>
+</div>
+          <div class="joinus">
+            <h2> JOIN US AND GET SOME TIPS</h2>
+            <div class="email">
+            <p>  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <input class="mail" type="text" value="Enter e-mail" />
+            </div>
+          </div>
      
         </Wrapper>
     )
@@ -70,6 +113,7 @@ display: flex;
 flex-direction:column;
 justify-content:space-around;
 heigth: 900px;
+background-color: black;
 
 h1{
     font-size: 50px;
@@ -83,10 +127,10 @@ h2{
 
 .btn {
     width:200px;
-    height:50px;
+    height:60px;
     color:black;
     font-weight:bold;
-    font-size:33px;
+    font-size:32px;
     background-color:white;
 }
 
@@ -105,15 +149,75 @@ h2{
 }
 
 .btn:hover{
-    width:170px;
-    height:35px;
-    color:black;
+    width:250px;
+    height:80px;
+    color:white;
     font-weight:bold;
-    font-size:34;
-    background-color:white;
+    font-size:38px;
+    font-weight:bold;
+    background-color:black;
 }
 
+.divplayers{
+  display: flex;
+  flex-direction:column;
+  margin-left: 35%;
+  padding: 30px;
+  width: 400px;
+  background-color: black;
+}
 
+.line{
+  width: 300px;
+  height: 5px;
+}
+
+.card-deck{
+  display: flex;
+  flex-direction: row;
+  gap: 70px;
+}
+
+.joinus{
+  padding: 80px;
+  height: 400px;
+  blackground-color:#faf3e8;
+  z-index: 100px;
+  Color: white;
+  margin-right: 50px;
+}
+
+h2{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.email{
+  display:flex;
+  flex-direction: row;
+}
+
+.icones{
+  margin-left:45%;
+}
+
+.card-title{
+  text-align:center;
+}
+
+.card-deck{
+  padding:30px;
+}
+
+.mail{
+  width:400px;
+  height:40px;
+  margin-right: 100px;
+}
+
+h3{
+  color: white;
+}
 `
 
 export default Home;

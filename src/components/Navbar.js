@@ -45,7 +45,7 @@ justify-content:space-around;
 align-items:center;
 width:100%;
 border: 1px solid black;
-background: linear-gradient(grey, black);
+background: linear-gradient(#7F00FF,black);
 
 
 ul{
