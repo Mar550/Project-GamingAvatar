@@ -8,7 +8,35 @@ const Footer = () => {
     return (
         <Wrapper>
             <h1 class="title">SHADOW GAMES</h1>
-
+            <div className= "container">
+                <div>
+                    <h3> About us</h3>
+                    <p> Name</p>
+                    <p> Vision </p>
+                    <p> Testimonials</p>
+                </div>
+                <div>
+                    <h3>Services</h3>
+                    <p> Writing</p>
+                    <p> Internship</p>
+                    <p> Coding</p>
+                    <p> Touching</p>
+                </div>
+                <div>
+                    <h3> Contact Us </h3>
+                    <p> Munich</p>
+                    <p> Madrid</p>
+                    <p> Mumbai</p>
+                    <p> Shanghai</p>
+                </div>
+                <div>
+                    <h3> Social Media </h3>
+                    <p> Facebook </p>
+                    <p> Instagram </p>
+                    <p> Twitter </p>
+                    <p> Youtube </p>
+                </div>
+            </div>
         </Wrapper>
     )
 }
@@ -24,11 +52,34 @@ height: 400px;
     font-size: 30px;
 }
 
+.container{
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    color:white;
+    justify-content:center;
+    justiy-items: center;
+    text-align:center;
+}
 
 
-.links{
+@media only screen ( max-width: 768px ) {
+
+h1{
+    font-size: 23px;
+}
 
 }
+@media only screen (min-width: 769px) and (max-width: 991px) {
+
+
+}
+
+@media only screen (max-width: 991px) {
+
+
+}
+
 
 `
 

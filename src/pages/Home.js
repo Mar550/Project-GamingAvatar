@@ -22,42 +22,41 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 
 
+
 const Home = () => {
 
   const {OpenSidebar}= useAppContext();
 
     return (
         <Wrapper> 
-            <div class="burgermenu">
+             
+            <div className="homepage" >
+            <div className="burgermenu">
                     <button className="open-btn" type="button" onClick={OpenSidebar}>
                           <GiHamburgerMenu />
                     </button>
-            </div> 
-            <div class="homepage" >
-                <div class="hometext"> 
-            <h1 class="title"> Check out our new avatars </h1>
+            </div>
+                <div className="hometext"> 
+            <h1 className="title"> Check out our new avatars </h1>
             <h2> We just released new characters with special designs and features, be among the first to get them now !</h2>
-            <button class="btn"> Discover</button>
+            <button className="btn"> Discover</button>
                 </div>
             </div>
 
-            <div class="divplayers">
+            <div className="divplayers">
             <h3> Our new custom players </h3>
-            <hr class="line"></hr>
+            <hr className="line"></hr>
           </div>
 
-          <Carousel class="carrousel">
-              <div>
-                  <img class="image" src={player1} />
-                  <p className="legend">Legend 1</p>
+          <Carousel className="carrousel">
+              <div className="divimg">
+                  <img class="imageavatar" src={player1} />
               </div>
-              <div>
-                <img class="image" src={player2}/>
-                <p className="legend">Legend 2</p>
+              <div className="divimg">
+                <img class="imageavatar" src={player2}/>
               </div>
-              <div>
-                <img class="image" src={player3} />
-                <p className="legend">Legend 3</p>
+              <div className="divimg">
+                <img class="imageavatar" src={player3} />
               </div>
             </Carousel> 
           
@@ -92,7 +91,7 @@ const Home = () => {
             <h2> Join us and get some tips !</h2>
             <div class="email">
             <p>  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <input class="mail" type="text" value="Enter your e-mail" width="100px" />
+            <input class="mail" type="text" value="Enter your e-mail"  />
             </div>
           </div>
      
@@ -107,6 +106,32 @@ flex-direction:column;
 justify-content:space-around;
 heigth: 900px;
 background-color: black;
+
+ul{
+  text-align:center;
+}
+
+.divimg  {
+  width: 800px;
+  height: 1000px;
+  display:flex;
+  margin-top: -160px;
+  margin-left:22%;
+}
+.divimg imageavatar{
+  width: 100%;
+  height: auto;
+  margin-left:50%;
+}
+
+.open-btn{
+  float:right;
+  padding: 10px;
+  margin-right: 30px;
+  margin-top: 20px;
+  border-radius: 80%;
+  font-size:30px;
+}
 
 h1{
     font-size: 50px;
@@ -179,6 +204,7 @@ img{
   margin-left:auto;
   margin-right:auto;
 }
+
 .joinus{
   padding: 80px;
   height: 400px;
@@ -186,17 +212,12 @@ img{
   z-index: 100px;
   Color: white;
   margin-right: 50px;
+
 }
 
 h2{
   margin-top: 40px;
   margin-bottom: 40px;
-}
-
-.email{
-  display: grid;
-  grid-template-colum: repeat(2,1fr);
-  grid-template-row: auto;
 }
 
 .icones{
@@ -220,8 +241,9 @@ h2{
 
 h3{
   color: white;
-  font-size: 31px;
+  font-size: 32px;
   font-weight: bold;
+
 }
 
 .card{
@@ -241,7 +263,6 @@ h3{
   size:auto;
 }
 
-
 image{
   width:200px;
   height:200px;
@@ -256,31 +277,49 @@ ul.thumbs.animated{
   width: 500px;
 }
 
-
-
-@media only screen (max-width: 768px) {
-
+@media only screen and ( max-width: 768px ) {
   .open-btn{
-    positions:relative;
+    display:block;
   }
+
+  .card.title{
+    font-size:22px;
+  }
+
+  .card-text{
+    font-size:16px;
+  }
+
+  .card-deck{
+    display:flex;
+    flex-direction:row;
+  }
+
+  input { 
+    width: 100%; 
+    padding: .5em 1em;
+   }
+
+
+  .iaWEyC .mail {
+    width:100px;
 }
 
-@media only screen (min-width: 769px) and (max-width: 991px) {
+@media only screen and ( min-width: 769px ) and ( max-width: 991px ) {
 
   .burgermenu{
-    display: block;
+    margin-left:33%;
   }
 }
 
-@media only screen (min-width: 992px) {
-
-  .burgermenu{
-    display: none;
+@media only screen and ( min-width: 992px ) {
+  
+  button open-btn{
+    display:none !important;
   }
+ 
 
 }
-
-
 
 `
 

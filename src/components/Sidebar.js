@@ -44,8 +44,9 @@ const Sidebar = () => {
 const Wrapper = styled.header`
     background: linear-gradient(#7F00FF,black);
     width:23%;
-    height:100%;  
-
+    height:100%; 
+    position:fixed;
+    z-index: 1002;
 
 .close-btn{
 
@@ -54,12 +55,11 @@ const Wrapper = styled.header`
 ul{
     display:flex;
     flex-direction:column;
-    justify-content: space-evenly;
-    align-items:center;
+    float:center;
     gap: 50px;
     list-style-type: none;
     text-decoration: none; 
-    margin-top:50px; 
+    margin-top:40px; 
 }
 
 a {
@@ -91,7 +91,6 @@ img{
         width:230px;
         height:700px;
         z-index:1001; 
-        background-color:black;
         
     }
      
@@ -101,7 +100,6 @@ img{
     .shown-sidebar{
         position: fixed;
         z-index:1001;
-        background-color:black;
         width:230px;
         height:700px;
     }
@@ -111,9 +109,7 @@ img{
 
 @media only screen and (min-width: 991px) {
 
-    .hidden-sidebar{
-        display:none;
-    }
+    display:none;
 
 }
 
