@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <Wrapper>
-            <h1 class="title">SHADOW GAMES</h1>
+            <h1 className="title">SHADOW GAMES</h1>
             <div className= "container">
                 <div>
                     <h3> About us</h3>

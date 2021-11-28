@@ -50,13 +50,13 @@ const Home = () => {
 
           <Carousel className="carrousel">
               <div className="divimg">
-                  <img class="imageavatar" src={player1} />
+                  <img className="imageavatar" src={player1} />
               </div>
               <div className="divimg">
-                <img class="imageavatar" src={player2}/>
+                <img className="imageavatar" src={player2}/>
               </div>
               <div className="divimg">
-                <img class="imageavatar" src={player3} />
+                <img className="imageavatar" src={player3} />
               </div>
             </Carousel> 
           
@@ -104,8 +104,10 @@ const Wrapper = styled.header`
 display: flex;
 flex-direction:column;
 justify-content:space-around;
-heigth: 900px;
 background-color: black;
+
+
+
 
 ul{
   text-align:center;
@@ -116,8 +118,9 @@ ul{
   height: 1000px;
   display:flex;
   margin-top: -160px;
-  margin-left:22%;
+  margin-left: 22%;
 }
+
 .divimg imageavatar{
   width: 100%;
   height: auto;
@@ -139,7 +142,7 @@ h1{
 
 h2{
     font-size: 30px;
-    font-weigt: normal;
+    font-weight: normal;
     margin-right: 30%;
 }
 
@@ -209,7 +212,7 @@ img{
   height: 400px;
   blackground-color:#faf3e8;
   z-index: 100px;
-  Color: white;
+  color: white;
   margin-right: 50px;
 
 }
@@ -221,7 +224,7 @@ h2{
 
 .icones{
   margin-left:45%;
-  backgroud-color:grey;
+  background-color:grey;
 }
 
 .card-title{
@@ -277,11 +280,15 @@ ul.thumbs.animated{
   width: 500px;
 }
 
-@media only screen and (max-width: 768px){
 
+
+@media only screen and ( max-width: 768px) {
+
+  
   h3{
     font-size:28px;
   }
+
   .divimg imageavatar{
     width: 60%;
     height: auto;
@@ -330,6 +337,9 @@ ul.thumbs.animated{
     font-size: 10px;
   }
 
+  .open-btn{
+    display:block;
+  }
 }
 
   
@@ -338,17 +348,13 @@ ul.thumbs.animated{
 
   .burgermenu{
     margin-left:33%;
+  } 
+
+  .open-btn{
+    display:block;
   }
 }
 
-@media only screen and ( min-width: 992px ) {
-  
-  button open-btn{
-    display:none !important;
-  }
- 
-
-}
 
 `
 

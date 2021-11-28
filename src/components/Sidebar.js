@@ -12,7 +12,7 @@ const Sidebar = () => {
     console.log(CloseSidebar)
 
         return (
-            <Wrapper class="sidebar">
+            <Wrapper className="sidebar">
                     <div className ={`sidebar ${isSidebarOpen ? 'shown-sidebar' : 'hidden-sidebar'}`}>
                     <div className = "sidebar-header">
                         <button className="close-btn" type="button" onClick={CloseSidebar}>

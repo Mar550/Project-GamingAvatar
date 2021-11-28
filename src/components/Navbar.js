@@ -11,37 +11,31 @@ import {GiHamburgerMenu} from "react-icons/gi"
 const Navbar = () => {
     const {OpenSidebar}= useAppContext();
     return (
-        <Wrapper class="navbar">            
+        <Wrapper className="navbar">            
             <div className="logo">
-                <img class="imglogo" src={imga}/>
+                <img className="imglogo" src={imga}/>
             </div>
             
             <div>
                 <ul className="Links">
                     {
                         navlinks.map((item) => {
-                            return (<li class="txtlinks" key={item.id}>
+                            return (<li className="txtlinks" key={item.id}>
                                 <Link to={item.url}>
                                     {item.text}
                                 </Link>
                             </li>);
                         })
                     }
-                    <div classname="burger" >
+                    <div className="burger" >
                         <button className="burgermenu" onClick={OpenSidebar}>
                             <GiHamburgerMenu />
                         </button>
-            </div>
+                    </div>
                 </ul>
                 
             </div>
-            <div className ="navsecond">  
-                    <div>
-                        <button className="burgermenu" onClick={OpenSidebar}>
-                        <GiHamburgerMenu />
-                        </button>
-                    </div>
-            </div>            
+            
         </Wrapper> 
     )
 }

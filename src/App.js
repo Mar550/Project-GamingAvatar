@@ -24,7 +24,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Sidebar class="sidebar"/>
+      <Sidebar />
       <Switch>
         <Route exact path='/'>
           <Home/>
