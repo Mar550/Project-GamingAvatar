@@ -63,11 +63,25 @@ height: 400px;
 }
 
 
-@media only screen ( max-width: 768px ) {
+@media only screen and ( max-width: 768px ) {
 
-h1{
-    font-size: 23px;
+.container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
+
+.title{
+    font-size: 21px;
+}
+h3 {
+    font-size: 17px;
+}
+p{
+    font-size: 13px;
+    line-height: 4px;
+}
+
 
 }
 @media only screen (min-width: 769px) and (max-width: 991px) {

@@ -23,7 +23,7 @@ export const AppProvider = ({children}) => {
     const CloseSidebar = () => {
         dispatch({type:SIDEBAR_CLOSE})
     }
-   
+ 
     return (
         <AppContext.Provider value= {{...state,OpenSidebar,CloseSidebar}}>
             {children}

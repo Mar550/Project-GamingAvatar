@@ -15,7 +15,7 @@ const app_reducer = (state,actions) => {
         }
 
         if (actions.type === SIDEBAR_CLOSE){
-            return {...state,isSidebarOpen:false}
+            return {...state, isSidebarOpen:false}
         }
 throw new Error(`No action is matched in ${actions.type}`);
  

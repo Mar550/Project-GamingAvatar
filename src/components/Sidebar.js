@@ -8,12 +8,14 @@ import imga from '../assets/imga.png'
 
 
 const Sidebar = () => {
-    const {isSidebarOpen, closeSidebar} = useAppContext();
+    const {isSidebarOpen, CloseSidebar} = useAppContext();
+    console.log(CloseSidebar)
+
         return (
             <Wrapper class="sidebar">
                     <div className ={`sidebar ${isSidebarOpen ? 'shown-sidebar' : 'hidden-sidebar'}`}>
                     <div className = "sidebar-header">
-                        <button className="close-btn" type="button" onClick={closeSidebar}>
+                        <button className="close-btn" type="button" onClick={CloseSidebar}>
                              <ImCross/>
                         </button>
                         <div>
@@ -27,7 +29,7 @@ const Sidebar = () => {
                                 return(
                                     
                                     <li key={id}>
-                                        <Link to={url} onClick={closeSidebar}>
+                                        <Link to={url} onClick={CloseSidebar}>
                                             {text}
                                         </Link>
                                     </li>
@@ -41,12 +43,16 @@ const Sidebar = () => {
         )
 }
 
+
 const Wrapper = styled.header`
+
+.sidebar{
     background: linear-gradient(#7F00FF,black);
     width:23%;
     height:100%; 
     position:fixed;
     z-index: 1002;
+}
 
 .close-btn{
 
@@ -84,6 +90,9 @@ img{
     margin-left: 25px;
 }
 
+.hidden-sidebar{
+    display:none;
+}
 
 @media only screen and (max-width: 768px) {
     .shown-sidebar{

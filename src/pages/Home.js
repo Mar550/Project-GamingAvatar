@@ -33,7 +33,7 @@ const Home = () => {
             <div className="homepage" >
             <div className="burgermenu">
                     <button className="open-btn" type="button" onClick={OpenSidebar}>
-                          <GiHamburgerMenu />
+                          <GiHamburgerMenu className="iconegurger" />
                     </button>
             </div>
                 <div className="hometext"> 
@@ -62,36 +62,36 @@ const Home = () => {
           
 
 
-          <div class="card-deck">
-  <div class="card">
+          <div className="card-deck">
+  <div className="card">
           <img src= {axe}/>
-    <div class="card-body">
-      <h5 class="card-title">The Arche</h5>
-      <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <div className="card-body">
+      <h5 className="card-title">The Arche</h5>
+      <p className="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
   </div>
-  <div class="card">
+  <div className="card">
       <img src= {sword}/>
-    <div class="card-body">
-      <h5 class="card-title">The Sword</h5>
-      <p class="card-text"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+    <div className="card-body">
+      <h5 className="card-title">The Sword</h5>
+      <p className="card-text"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
     </div>
 
   </div>
-  <div class="card">
+  <div className="card">
     <img src= {fleau}/>
-    <div class="card-body">
-      <h5 class="card-title">Fleau</h5>
-      <p class="card-text"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+    <div className="card-body">
+      <h5 className="card-title">Fleau</h5>
+      <p className="card-text"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
     </div>
 
   </div>
 </div>
-          <div class="joinus">
+          <div className="joinus">
             <h2> Join us and get some tips !</h2>
-            <div class="email">
-            <p>  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <input class="mail" type="text" value="Enter your e-mail"  />
+            <div className ="email">
+            <p className = "contact-text">  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <input className="mail" type="text" value="Enter your e-mail"  />
             </div>
           </div>
      
@@ -181,10 +181,9 @@ h2{
 .divplayers{
   display: flex;
   flex-direction:column;
-  margin-left: 35%;
-  margin-toP: 20px; 
+  margin-top: 20px; 
   padding: 20px;
-  width: 400px;
+  width: 100%;
   background-color: black;
 }
 
@@ -196,7 +195,7 @@ h2{
 .card-deck{
   display: flex;
   flex-direction: row;
-  gap: 70px;
+  gap: 60px;
 }
 
 img{
@@ -234,7 +233,7 @@ h2{
 }
 
 .mail{
-  width:400px;
+  width:260px;
   height:40px;
   
 }
@@ -243,6 +242,7 @@ h3{
   color: white;
   font-size: 32px;
   font-weight: bold;
+  text-align:center;
 
 }
 
@@ -277,7 +277,25 @@ ul.thumbs.animated{
   width: 500px;
 }
 
-@media only screen and ( max-width: 768px ) {
+@media only screen and (max-width: 768px){
+
+  h3{
+    font-size:28px;
+  }
+  .divimg imageavatar{
+    width: 60%;
+    height: auto;
+    margin-left:30%;
+  }
+
+  .divimg  {
+    width: 400px;
+    height: 550px;
+    display:flex;
+    margin-top: -160px;
+    margin-left:30%;
+  }
+
   .open-btn{
     display:block;
   }
@@ -293,17 +311,28 @@ ul.thumbs.animated{
   .card-deck{
     display:flex;
     flex-direction:row;
+    gap: 20px;
   }
 
-  input { 
-    width: 100%; 
-    padding: .5em 1em;
+  .mail { 
+    width: 50px; 
    }
 
+  h2{
+    font-size: 20px;
+  }
 
-  .iaWEyC .mail {
-    width:100px;
+  p{
+    font-size: 14px;
+  }
+
+  .card-text{
+    font-size: 10px;
+  }
+
 }
+
+  
 
 @media only screen and ( min-width: 769px ) and ( max-width: 991px ) {
 

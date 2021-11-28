@@ -27,10 +27,10 @@ const Navbar = () => {
                             </li>);
                         })
                     }
-                <div classname="burger" >
-                <button className="burgermenu" onClick={OpenSidebar}>
-                    <GiHamburgerMenu />
-                </button>
+                    <div classname="burger" >
+                        <button className="burgermenu" onClick={OpenSidebar}>
+                            <GiHamburgerMenu />
+                        </button>
             </div>
                 </ul>
                 
