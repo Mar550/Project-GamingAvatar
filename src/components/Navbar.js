@@ -27,11 +27,7 @@ const Navbar = () => {
                             </li>);
                         })
                     }
-                    <div className="burger" >
-                        <button className="burgermenu" onClick={OpenSidebar}>
-                            <GiHamburgerMenu />
-                        </button>
-                    </div>
+                    
                 </ul>
                 
             </div>
@@ -97,39 +93,25 @@ a:hover {
     text-shadow: 1px 1px 2px grey;
 }
 
-.burgermenu{
-    border-radius:50%;
-    font-size: 30px;
-    border: 1px solid black;
-    margin-left:200px;
-}
 
 
 
 
 @media only screen and (max-width: 768px) {
     display:none;
-    .burgermenu{
-        display:block;
-    }
+  
 
 }
     
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
     display:none;
-    .burgermenu{
-        display:block;
-        text-align: right;
-
-    }
+    
 }
 
 @media only screen and ( min-width: 992px) {
 
-    .burgermenu{
-        display:none;
-    }
+    
 }
 
 

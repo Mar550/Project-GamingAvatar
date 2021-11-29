@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import { useAppContext } from '../context/app_context';
 import {GiHamburgerMenu} from "react-icons/gi"
@@ -26,14 +26,33 @@ import { Carousel } from 'react-responsive-carousel';
 const Home = () => {
 
   const {OpenSidebar}= useAppContext();
+  const [value,setValue] = useState(false);
+
+ 
+
+      useEffect(() => {
+        if(window.matchMedia("(max-width: 800px)").matches){
+          setValue(true)
+        }
+        else{
+          setValue(false)
+        }
+        
+        
+      }, [value])
+    
+
+  
+
+
 
     return (
         <Wrapper> 
              
             <div className="homepage" >
-            <div className="burgermenu">
+            <div className={`burgermenu ${value ? "show" : "hide"}`}>
                     <button className="open-btn" type="button" onClick={OpenSidebar}>
-                          <GiHamburgerMenu className="iconegurger" />
+                          <GiHamburgerMenu/>
                     </button>
             </div>
                 <div className="hometext"> 
@@ -135,6 +154,19 @@ ul{
   border-radius: 80%;
   font-size:30px;
 }
+
+.burgermenu .show{
+ 
+  display:block !important ;
+}
+
+
+
+.burgermenu .hide{
+
+  display:none !important;
+}
+
 
 h1{
     font-size: 50px;
@@ -282,7 +314,8 @@ ul.thumbs.animated{
 
 
 
-@media only screen and ( max-width: 768px) {
+
+@media screen and (max-width: 768px) {
 
   
   h3{
@@ -301,10 +334,6 @@ ul.thumbs.animated{
     display:flex;
     margin-top: -160px;
     margin-left:30%;
-  }
-
-  .open-btn{
-    display:block;
   }
 
   .card.title{
@@ -336,24 +365,16 @@ ul.thumbs.animated{
   .card-text{
     font-size: 10px;
   }
+  
+  
 
-  .open-btn{
-    display:block;
-  }
+ 
+
+
 }
 
   
 
-@media only screen and ( min-width: 769px ) and ( max-width: 991px ) {
-
-  .burgermenu{
-    margin-left:33%;
-  } 
-
-  .open-btn{
-    display:block;
-  }
-}
 
 
 `

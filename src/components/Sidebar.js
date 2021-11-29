@@ -95,7 +95,7 @@ img{
 }
 
 @media only screen and (max-width: 768px) {
-    .shown-sidebar{
+    .hidden-sidebar{
         position:fixed;
         width:230px;
         height:700px;
@@ -106,7 +106,7 @@ img{
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
   
-    .shown-sidebar{
+    .hidden-sidebar{
         position: fixed;
         z-index:1001;
         width:230px;
