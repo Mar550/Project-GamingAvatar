@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import ImagePerson from '../components/ImagePerson'
 import {AiOutlinePlusCircle} from "react-icons/ai";
 import {AiOutlineMinusCircle} from "react-icons/ai";
 import {AiFillCaretRight} from "react-icons/ai";
 import {AiFillCaretLeft} from "react-icons/ai";
-import {GiMuscleUp} from "react-icons/gi";
+import {GiConsoleController, GiMuscleUp} from "react-icons/gi";
 import {GiBodyBalance} from "react-icons/gi";
 import {MdFaceRetouchingNatural} from "react-icons/md";
 
@@ -16,6 +17,9 @@ import axe from '../assets/axe.png'
 import sword from '../assets/sword.png'
 import fleau from '../assets/fleau.png'
 
+
+
+
 const state = {
     person:{
         image:1,
@@ -25,39 +29,29 @@ const state = {
         weapon: null
     },
     points:14
-}
+    }
 
+console.log(state)
 
-const images = [player1, player2, player3]
-
-const NextImage = () => {
-    const [imageIndex, setImageIndex] = useState(0);
-    if (imageIndex !== images.length) {
-        setImageIndex(imageIndex +1)
-    }
-    else if (imageIndex === images.length){
-        setImageIndex(0)
-    }
-}
-const PrevImage = () => {
-    const [imageIndex, setImageIndex] = useState(0);
-    if (imageIndex !== 1) {
-        setImageIndex(imageIndex - 1)
-    }
-    else if (imageIndex === 1){
-        setImageIndex(images.length)
-    }
-}
 
 
 
 
 function Person() {
+    const images = [player1, player2, player3]
     const [total, setTotal] = useState(14)
     const [strength,setStrength] = useState(0);
     const [agility,setAgility] = useState(0);
     const [intel,setIntel] = useState(0);
+    const [weapon,setWeapon] = useState(null)
 
+
+        // SET WEAPON
+    
+
+    
+    
+        // ADD AND REMOVE POINTS
         function addStrength() {
             if (total > 0) {
                 setStrength(strength+1);
@@ -106,21 +100,39 @@ function Person() {
             }
         }
 
+        //CHANGE IMAGES
+        const [image, setImage] = useState(1);
 
+        const previous = () => {
+            if(image <= 1){
+                setImage(4)
+            } else {
+                setImage(image - 1);
+            }
+        
+          }
+          const next = () => {
+            setImage(image + 1);
+            }
+
+        // SETSTATE WEAPONS
+        
+            
+
+            
     
-
     return (
         <Wrapper>
+                
             <div className="avatarpoints" >
                 <div className="avatar" >
-                <AiFillCaretLeft onClick={PrevImage}/>
-                    <img className="image" src={player1}/>
-                <AiFillCaretRight onClick={NextImage}/>
                 </div>
                 <div className="points">
+                    <h3> Points </h3>
                     <button className="btn-points"> {total} </button>
                 </div>
             </div>
+
             <div className="counts">
             <div className="count">
                 <AiOutlinePlusCircle className="btn-icon-plus" onClick={addStrength}/>
@@ -148,42 +160,46 @@ function Person() {
                 </div>
                 <AiOutlineMinusCircle className="btn-icon-minus" onClick={removeIntel}/>
             </div>
+            </div>
 
             
-            </div>
 
             <div className="card-deck">
                 <div className="card">
-                    <img src= {axe}/>
+                    <img src= {axe} onClick = {() => this.GetArche()}/>
                     <div className="card-body">
                         <h5 className="card-title">The Arche</h5>
-                        <p className="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
                     </div>
                 </div>
 
                 <div className="card">
-                    <img src= {sword}/>
+                    <img src= {sword} onClick = {() => this.GetSword()}/>
                     <div className="card-body">
                         <h5 className="card-title">The Sword</h5>
-                        <p className="card-text"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut. </p>
                     </div>
                 </div>
 
                 <div className="card">
-                    <img src= {fleau}/>
+                    <img src= {fleau} onClick = {() => this.GetFleau()}/>
                     <div className="card-body">
                         <h5 className="card-title">Fleau</h5>
-                        <p className="card-text"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut. </p>
                     </div>
                 </div>
             </div>
+            <div>
+                <button onClick={() =>setWeapon('The Arche')}> WEAPON</button>
+            </div>
+            <div>
+            <ImagePerson image={image} clickLeft={previous} clickRight={next} />
+            </div>
         </Wrapper>
+        
     )
 }
 
 const Wrapper = styled.header`
 
-height: 1100px;
+height: 3000px;
 
 
 .avatarpoints {
@@ -197,7 +213,7 @@ height: 1100px;
 }
 
 .btn-points{
-    border-radius: 50%;
+    border-radius: 30%;
     background: black;
     color:white;
     font-size: 25px;
@@ -206,17 +222,17 @@ height: 1100px;
 btn-points:hover{
     cursor:pointer;
 }
-.image{
-    width: 300px;
-    padding:20px;
-}
+
 .count {
     padding: 20px;
     display: flex;
     flex-direction:row;
     gap: 7px;
 }
-
+.image{
+    width: 300px;
+    padding:20px;
+}
 .counts{
     display: flex;
     flex-direction: row;
