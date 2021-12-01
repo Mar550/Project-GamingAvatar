@@ -28,11 +28,8 @@ function Person() {
     const [created,setCreated] = useState("");
     const [image, setImage] = useState(1);
 
-
-
-
         // SET WEAPON
-    
+
 
     
     
@@ -100,24 +97,56 @@ function Person() {
             }
 
         // SELECT WEAPONS
-        
-        
 
-        const resetChoices = () => {
-            setWeapon(weapon)
-            setStrength(0)
-            setAgility(0)
-            setIntel(0)
-            setTotal(14)
-            console.log(resetChoices)
-        }
+    const resetChoices = () => {
+        setWeapon(weapon)
+        setStrength(0)
+        setAgility(0)
+        setIntel(0)
+        setTotal(14)
+        console.log(resetChoices)
+    }
 
-    const createElement = () => {
+    
+    const createElement = () => { 
+        let weaponName = ''; 
+
+        let imagePrint = ''; 
+
+    if(weapon === 'Arche')
+    {
+        weaponName = axe;
+    }
+    else if(weapon === 'Sword')
+    {
+        weaponName = sword;
+    }
+    else 
+    {
+        weaponName = fleau
+    }
+
+
+
+    if(image === 1){
+    
+        imagePrint = player1;
+    }
+    else if(image === 2)
+    {
+        imagePrint = player2;
+    }
+    else 
+    {
+        imagePrint = player3
+    }
+
+
 
         const person = {
             
             avatar :{
-                image:image,
+                image:imagePrint,
                 strength:strength,
                 agility:agility,
                 intel:intel,
@@ -126,6 +155,7 @@ function Person() {
 
             name:"marouane"
         }
+
 
         setLoading(true);
         axios.post("https://project-react-266c2-default-rtdb.firebaseio.com/person.json",person)
@@ -343,6 +373,13 @@ btn-points:hover{
   .card{
     box-shadow: 10px 10px 10px ;
     width: 250px;
+  }
+
+  .card:hover{
+    cursor:pointer;
+  }
+  .card:onClick{
+    border: 2px solid black;
   }
 
   .card-footer{

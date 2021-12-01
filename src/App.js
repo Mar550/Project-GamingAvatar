@@ -9,7 +9,8 @@ import {
   About,
   FAQ,
   Error,
-  Person
+  Person,
+  Consumer
 } from './pages';
 
 import {
@@ -36,6 +37,10 @@ function App() {
 
         <Route  path='/person'>
           <Person/>
+        </Route>
+
+        <Route  path='/myperson'>
+          <Consumer/>
         </Route>
 
         <Route  path='/faq'>

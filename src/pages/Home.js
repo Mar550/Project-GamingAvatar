@@ -365,17 +365,8 @@ ul.thumbs.animated{
   .card-text{
     font-size: 10px;
   }
-  
-  
-
- 
-
 
 }
-
-  
-
-
 
 `
 

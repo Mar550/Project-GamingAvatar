@@ -18,5 +18,10 @@ export const navlinks = [
         id:4,
         url:'/faq',
         text:'FAQ'
+    },
+    {
+        id:5,
+        url: '/myperson',
+        text: 'My avatar'
     }
 ]

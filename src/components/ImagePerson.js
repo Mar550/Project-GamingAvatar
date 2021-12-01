@@ -42,7 +42,7 @@ const Wrapper = styled.header`
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: grey;
+    background-color: white;
     border:2px solid black;
     text-align: center;
     font-size: 1.5rem;
