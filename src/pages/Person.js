@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import axios from 'axios';
 import ImagePerson from '../components/ImagePerson'
 import {AiOutlinePlusCircle} from "react-icons/ai";
 import {AiOutlineMinusCircle} from "react-icons/ai";
-import {AiFillCaretRight} from "react-icons/ai";
-import {AiFillCaretLeft} from "react-icons/ai";
-import {GiConsoleController, GiMuscleUp} from "react-icons/gi";
+import {GiMuscleUp} from "react-icons/gi";
 import {GiBodyBalance} from "react-icons/gi";
 import {MdFaceRetouchingNatural} from "react-icons/md";
 
@@ -19,31 +17,18 @@ import fleau from '../assets/fleau.png'
 
 
 
-
-const state = {
-    person:{
-        image:1,
-        strength:0,
-        agility:0,
-        intelligence:0,
-        weapon: null
-    },
-    points:14
-    }
-
-console.log(state)
-
-
-
-
-
 function Person() {
     const images = [player1, player2, player3]
     const [total, setTotal] = useState(14)
     const [strength,setStrength] = useState(0);
     const [agility,setAgility] = useState(0);
     const [intel,setIntel] = useState(0);
-    const [weapon,setWeapon] = useState(null)
+    const [weapon,setWeapon] = useState("");
+    const [loading,setLoading] = useState(false);
+    const [created,setCreated] = useState("");
+    const [image, setImage] = useState(1);
+
+
 
 
         // SET WEAPON
@@ -101,7 +86,6 @@ function Person() {
         }
 
         //CHANGE IMAGES
-        const [image, setImage] = useState(1);
 
         const previous = () => {
             if(image <= 1){
@@ -115,17 +99,53 @@ function Person() {
             setImage(image + 1);
             }
 
-        // SETSTATE WEAPONS
+        // SELECT WEAPONS
         
-            
+        
 
+        const resetChoices = () => {
+            setWeapon(weapon)
+            setStrength(0)
+            setAgility(0)
+            setIntel(0)
+            setTotal(14)
+            console.log(resetChoices)
+        }
+
+    const createElement = () => {
+
+        const person = {
+            
+            avatar :{
+                image:image,
+                strength:strength,
+                agility:agility,
+                intel:intel,
+                weapon:weapon
+            },
+
+            name:"marouane"
+        }
+
+        setLoading(true);
+        axios.post("https://project-react-266c2-default-rtdb.firebaseio.com/person.json",person)
+        .then(res => {
+
+            setLoading(false)
+            setCreated("person creatd successfully")
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
             
     
     return (
         <Wrapper>
                 
             <div className="avatarpoints" >
-                <div className="avatar" >
+                <div>
+                    <ImagePerson image={image} clickLeft={previous} clickRight={next} />
                 </div>
                 <div className="points">
                     <h3> Points </h3>
@@ -166,32 +186,44 @@ function Person() {
 
             <div className="card-deck">
                 <div className="card">
-                    <img src= {axe} onClick = {() => this.GetArche()}/>
+                    <img src= {axe} onClick = {() => setWeapon("Arche")}/>
                     <div className="card-body">
                         <h5 className="card-title">The Arche</h5>
                     </div>
                 </div>
 
                 <div className="card">
-                    <img src= {sword} onClick = {() => this.GetSword()}/>
+                    <img src= {sword} onClick = {() => setWeapon("Sword")}/>
                     <div className="card-body">
                         <h5 className="card-title">The Sword</h5>
                     </div>
                 </div>
 
                 <div className="card">
-                    <img src= {fleau} onClick = {() => this.GetFleau()}/>
+                    <img src= {fleau} onClick = {() => setWeapon("Fleau")}/>
                     <div className="card-body">
                         <h5 className="card-title">Fleau</h5>
                     </div>
                 </div>
             </div>
-            <div>
-                <button onClick={() =>setWeapon('The Arche')}> WEAPON</button>
+
+
+            {
+                loading ? <div><h1>data is loading...</h1></div> : null
+            }
+
+
+            {
+                created ? <div><h1> {created} </h1></div> : null
+            }
+
+
+            
+            <div className="buttonscontainer">
+                <button className = "buttonsave" onClick= {createElement}> SAVE</button>
+                <button className = "buttonreset" onClick = {resetChoices}> RESET</button>
             </div>
-            <div>
-            <ImagePerson image={image} clickLeft={previous} clickRight={next} />
-            </div>
+            
         </Wrapper>
         
     )
@@ -199,24 +231,55 @@ function Person() {
 
 const Wrapper = styled.header`
 
-height: 3000px;
+height: 1800px;
 
+.buttonscontainer{
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    gap: 100px;
+}
+
+button{
+    font-size: 30px;
+    border-radius: 30px;
+    width: 200px;  
+}
+
+.buttonsave{
+    background:green;
+}
+.buttonreset {
+    background:red;
+}  
+
+button:hover{
+    cursor:pointer;
+    background-color: black;
+    color: white;
+}
 
 .avatarpoints {
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-items:center;
+    align-items:center;
 }
-
+ 
 .points{
-    padding: 80px;
-    margin-top: 120px;
+    padding: 50px;
 }
 
 .btn-points{
-    border-radius: 30%;
     background: black;
     color:white;
-    font-size: 25px;
+    font-size: 35px;
+    justify-content:center;
+
+}
+h3{
+    font-weight: bold;
 }
 
 btn-points:hover{
@@ -236,7 +299,10 @@ btn-points:hover{
 .counts{
     display: flex;
     flex-direction: row;
-    gap: 40px;
+    align-items: center;
+    justify-elemts:center;
+    justify-content:center;
+    gap: 100px;
 }
 .btn-icon-plus{
     background-color: green;
@@ -258,8 +324,6 @@ btn-points:hover{
     margin-top:-24px;
     margin-left: 5px;
 }
-
-
 
 .card-deck{
     display: flex;
