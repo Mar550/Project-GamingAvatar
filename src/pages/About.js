@@ -4,7 +4,8 @@ import { Navbar } from '../components';
 import { useAppContext } from '../context/app_context';
 import manette from '../assets/manette.png'
 import {GoKeyboard} from "react-icons/go"
-
+import {ImArrowDown} from "react-icons/im"
+import {GiPaintBrush} from "react-icons/gi"
 
 
 const About = () => {
@@ -34,7 +35,8 @@ const About = () => {
         <h5 class="mb-0">
             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           Programming 
-          <img src={GoKeyboard}/>
+          <GoKeyboard/>
+          <ImArrowDown class="arrow"/>
             </button>
         </h5>
         </div>
@@ -80,13 +82,16 @@ const About = () => {
 
 const Wrapper = styled.header`
     background-color: black;
+    font-family: 'Electrolize', sans-serif;
 
+    .arrow{
+    }
     .container{
         background-color: black;
         padding: 100px;
     }
     .title{
-        color:white;
+        color:rgb(187,187,187);
         text-align:center;
         font-weight:bold;
     }

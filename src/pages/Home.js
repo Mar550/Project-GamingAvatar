@@ -124,8 +124,7 @@ display: flex;
 flex-direction:column;
 justify-content:space-around;
 background-color: black;
-
-
+font-family: 'Electrolize', sans-serif;
 
 
 ul{

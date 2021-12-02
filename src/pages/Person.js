@@ -262,6 +262,8 @@ function Person() {
 const Wrapper = styled.header`
 
 height: 1800px;
+font-family: 'Electrolize', sans-serif;
+
 
 .buttonscontainer{
     padding: 40px;
@@ -386,12 +388,14 @@ btn-points:hover{
     background-color:#C3C3C3;
   }
   
-  
-
   .card-text{
       padding: 2px;
       text-align:center;
       font-size: 14px;
+  }
+
+  .avatarpoints{
+      
   }
 
 `

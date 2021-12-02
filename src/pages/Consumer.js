@@ -43,6 +43,8 @@ function Consumer () {
 const Wrapper = styled.header`
 
 height: 500px;
+font-family: 'Electrolize', sans-serif;
+
 
 `
 

@@ -3,11 +3,20 @@ import styled from 'styled-components';
 import { useAppContext } from '../context/app_context';
 import { navlinks } from '../utils/constant';
 import { Link } from 'react-router-dom';
+import {FaTwitterSquare} from "react-icons/fa"
+import {IoLogoYoutube} from "react-icons/io"
+import {ImInstagram} from "react-icons/im"
+import logo4 from '../assets/logo4.png'
+
+
 
 const Footer = () => {
     return (
         <Wrapper>
             <h1 className="title">SHADOW GAMES</h1>
+            <div className="container2">
+                <img src={logo4} className="imglogo"/>
+            </div>
             <div className= "container">
                 <div>
                     <h3> About us</h3>
@@ -17,10 +26,10 @@ const Footer = () => {
                 </div>
                 <div>
                     <h3>Services</h3>
-                    <p> Writing</p>
-                    <p> Internship</p>
+                    <p> Creation</p>
+                    <p> Design</p>
                     <p> Coding</p>
-                    <p> Touching</p>
+                    <p> Internship </p>
                 </div>
                 <div>
                     <h3> Contact Us </h3>
@@ -30,11 +39,10 @@ const Footer = () => {
                     <p> Shanghai</p>
                 </div>
                 <div>
-                    <h3> Social Media </h3>
-                    <p> Facebook </p>
-                    <p> Instagram </p>
-                    <p> Twitter </p>
-                    <p> Youtube </p>
+                    <h3> Follow us </h3>
+                    <p> <FaTwitterSquare/> </p>
+                    <p> <ImInstagram/> </p>
+                    <p> <IoLogoYoutube/> </p>
                 </div>
             </div>
         </Wrapper>
@@ -44,6 +52,17 @@ const Footer = () => {
 const Wrapper = styled.header`
 background: linear-gradient(black, #7F00FF);
 height: 400px;
+font-family: 'Odibee Sans', cursive;
+
+.imglogo{
+    width:20%;
+
+}
+
+.container2{
+    display:flex;
+    justify-content:center;
+}
 
 .title{
     color: white;
@@ -55,7 +74,7 @@ height: 400px;
 .container{
     display: flex;
     flex-direction: row;
-    gap: 80px;
+    gap: 18%;
     color:white;
     justify-content:center;
     justiy-items: center;

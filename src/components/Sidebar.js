@@ -5,6 +5,8 @@ import { navlinks } from '../utils/constant';
 import { Link } from 'react-router-dom';
 import {ImCross} from "react-icons/im"
 import imga from '../assets/imga.png'
+import logo4 from '../assets/logo4.png'
+
 
 
 const Sidebar = () => {
@@ -19,7 +21,7 @@ const Sidebar = () => {
                              <ImCross/>
                         </button>
                         <div>
-                            <img src={imga}/>
+                            <img src={logo4}/>
                         </div>
                     </div>
                     <ul className="links">
@@ -45,6 +47,9 @@ const Sidebar = () => {
 
 
 const Wrapper = styled.header`
+
+font-family: 'Electrolize', sans-serif;
+fint-weight: bold;
 
 .sidebar{
     background: linear-gradient(#7F00FF,black);
@@ -73,7 +78,7 @@ a {
     text-decoration: none;
     font-weight:bold;
     font-weight:bold;
-    font-size:22px;
+    font-size:23px;
 }
 
 a:hover {

@@ -22,7 +22,9 @@ const ImagePerson =  ({image,clickLeft,clickRight}) => {
         <Wrapper>
      <div className="person-6">
         <button className="button-move" onClick={clickLeft}>&lt;</button>
-        <img src={imagePrint} className='img-move' />
+        <div className="imageavatar">
+          <img src={imagePrint} className='img-move' />
+        </div>
         <button className="button-move" onClick={clickRight}>&gt;</button>
     </div>
     </Wrapper>
@@ -30,6 +32,9 @@ const ImagePerson =  ({image,clickLeft,clickRight}) => {
 }
 
 const Wrapper = styled.header`
+
+font-family: 'Electrolize', sans-serif;
+
 .person-6{
     width: 100%;
     height: 500px;
@@ -39,22 +44,42 @@ const Wrapper = styled.header`
   }
   
   .button-move{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: white;
-    border:2px solid black;
+    border:3px solid black;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 25px;
+    font-weight:bold;
+    margin-top:10%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 10px;
   }
-  
+
+  .button-move:hover{
+    backgroud-color: black;
+    color:white;
+  }
+
+  .imageavatar{
+    margin-top: 10%;
+    border:1px solid black;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px grey;
+  }
+
   .img-move{
-    width: 300px;
-    height: 450px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
   }
+
+
 
 `
 

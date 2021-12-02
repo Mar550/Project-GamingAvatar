@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import {navlinks} from '../utils/constant';
 import { useAppContext } from '../context/app_context';
-
+import logo4 from '../assets/logo4.png'
 import imga from '../assets/imga.png'
 import {GiHamburgerMenu} from "react-icons/gi"
 
@@ -13,7 +13,7 @@ const Navbar = () => {
     return (
         <Wrapper className="navbar">            
             <div className="logo">
-                <img className="imglogo" src={imga}/>
+                <img className="imglogo" src={logo4}/>
             </div>
             
             <div>
@@ -46,7 +46,8 @@ width:100%;
 height:140px;
 border: 1px solid black;
 background: linear-gradient(#7F00FF,black);
-
+font-family: 'Electrolize', sans-serif;
+font-weight: bold;
 
 ul{
     display:flex;
@@ -65,7 +66,7 @@ li{
     margin-left: 30px;
 }
 .logo {
-    width: 100px;
+    width: 200px;
     heigth: 100px;
     margin-left: -40px;
 }
