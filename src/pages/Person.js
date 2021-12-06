@@ -172,23 +172,25 @@ function Person() {
     
     return (
         <Wrapper>
-                
+            
+            <section className="container1">
             <div className="avatarpoints" >
                 <div>
                     <ImagePerson image={image} clickLeft={previous} clickRight={next} />
                 </div>
-                <div className="points">
-                    <h3> Points </h3>
-                    <button className="btn-points"> {total} </button>
-                </div>
             </div>
 
             <div className="counts">
+            <div className="points">
+                    <h3 className="txttitle"> Available Points </h3>
+                    <button className="btn-points"> {total} </button>
+                </div>
             <div className="count">
                 <AiOutlinePlusCircle className="btn-icon-plus" onClick={addStrength}/>
                 <div className="element">
+                <p className="txt"> Strength </p>
                 <GiMuscleUp className="icon"/>
-                <p> {strength} </p>
+                <p className="txtnumber"> {strength} </p>
                 </div>
                 <AiOutlineMinusCircle className="btn-icon-minus" onClick={removeStrength}/>
             </div>
@@ -196,8 +198,9 @@ function Person() {
             <div className="count">
                 <AiOutlinePlusCircle className="btn-icon-plus" onClick={addAgility}/>
                 <div className="element">
+                <p className="txt"> Agility </p>
                 <GiBodyBalance className="icon"/>
-                <p> {agility} </p>
+                <p className="txtnumber"> {agility} </p>
                 </div>
                 <AiOutlineMinusCircle className="btn-icon-minus" onClick={removeAgility}/>
             </div>
@@ -205,27 +208,33 @@ function Person() {
             <div className="count">
                 <AiOutlinePlusCircle className="btn-icon-plus" onClick={addIntel}/>
                 <div className="element">
+                <p className="txt"> Intelligence </p>
                 <MdFaceRetouchingNatural className="icon"/>
-                <p> {intel} </p>
+                <p className="txtnumber"> {intel} </p>
                 </div>
                 <AiOutlineMinusCircle className="btn-icon-minus" onClick={removeIntel}/>
             </div>
             </div>
-
+            </section>
             
-
+            <section className="containerweapon"> 
+            <div>
+            <h1 className="txttitle2"> Select your weapon </h1>
+            
+            </div>
             <div className="card-deck">
+                
                 <div className="card">
                     <img src= {axe} onClick = {() => setWeapon("Arche")}/>
                     <div className="card-body">
-                        <h5 className="card-title">The Arche</h5>
+                        <h5 className="card-title">Arche</h5>
                     </div>
                 </div>
 
                 <div className="card">
                     <img src= {sword} onClick = {() => setWeapon("Sword")}/>
                     <div className="card-body">
-                        <h5 className="card-title">The Sword</h5>
+                        <h5 className="card-title">Sword</h5>
                     </div>
                 </div>
 
@@ -236,6 +245,7 @@ function Person() {
                     </div>
                 </div>
             </div>
+            </section>
 
 
             {
@@ -261,9 +271,43 @@ function Person() {
 
 const Wrapper = styled.header`
 
-height: 1800px;
+height: 100%;
 font-family: 'Electrolize', sans-serif;
 
+.txttitle2{
+margin-top:5%;
+}
+
+h1{
+    text-align:center;
+}
+
+.txt{
+    font-size:19px;
+    font-weight: bold;
+    text-align:center;
+}
+
+.txtnumber{
+    font-size:23px;
+    font-weight: bold;
+    text-align:center;
+    font-size: 30px;
+    color: red;
+}
+
+.icon{
+    font-size: 40px;
+    text-align:center;
+}
+
+.container1{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    gap: 70px;
+
+}
 
 .buttonscontainer{
     padding: 40px;
@@ -280,17 +324,26 @@ button{
 }
 
 .buttonsave{
-    background:green;
+    background:white;
+    color: black;
 }
 .buttonreset {
-    background:red;
+    background:black;
+    color:white;
 }  
 
-button:hover{
+.buttonsave:hover{
+    background:black;
+    color:white;+
     cursor:pointer;
-    background-color: black;
-    color: white;
 }
+
+.buttonreset:hover {
+    background:white;
+    color: black;
+    cursor:pointer;
+}
+
 
 .avatarpoints {
     display:flex;
@@ -308,6 +361,7 @@ button:hover{
     color:white;
     font-size: 35px;
     justify-content:center;
+    margin-bottom:-10px;
 
 }
 h3{
@@ -323,6 +377,7 @@ btn-points:hover{
     display: flex;
     flex-direction:row;
     gap: 7px;
+    margin-bottom:-16%;
 }
 .image{
     width: 300px;
@@ -330,37 +385,48 @@ btn-points:hover{
 }
 .counts{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-elemts:center;
     justify-content:center;
-    gap: 100px;
+    margin-top: -2% ;
+  
 }
 .btn-icon-plus{
-    background-color: green;
     border-radius: 50%;   
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
 }
 .btn-icon-minus{
-    background-color: red;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
+}
+
+.btn-icon-plus:hover{
+    cursor:pointer;
+    background-color: black;
+    color:white;
+}
+
+.btn-icon-minus:hover{
+    background-color: black;
+    color:white;
+
 }
 
 .element{
     display:flex;
     flex-direction:column;
-    gap:10px;
-    margin-top:-24px;
-    margin-left: 5px;
+    justify-content:center;
+    text-align:center;
+    align-items:center;
 }
 
 .card-deck{
     display: flex;
     flex-direction: row;
-    gap: 60px;
+    gap: 10%;
     justify-content: center;
   }
 
@@ -373,7 +439,7 @@ btn-points:hover{
   }
 
   .card{
-    box-shadow: 10px 10px 10px ;
+    box-shadow: 10px 10px 10px 10px grey ;
     width: 250px;
   }
 
@@ -394,8 +460,33 @@ btn-points:hover{
       font-size: 14px;
   }
 
-  .avatarpoints{
-      
+  
+
+  @media screen and (max-width: 768px) {
+    .container1{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        gap: 70px;
+    
+    }
+
+    .containerweapon{
+        margin-top: 80px;
+    }
+
+    .card-deck{
+        gap: 15px;
+    }
+
+    h5{
+        font-size: 17px;
+        font-weight:bold;
+    }
+
+    .points{
+        padding: 30px;
+    }
   }
 
 `

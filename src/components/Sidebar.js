@@ -21,7 +21,7 @@ const Sidebar = () => {
                              <ImCross/>
                         </button>
                         <div>
-                            <img src={logo4}/>
+                            <img className="logoimage" src={logo4}/>
                         </div>
                     </div>
                     <ul className="links">
@@ -106,6 +106,16 @@ img{
         height:700px;
         z-index:1001; 
         
+    }
+
+    .sidebar{
+        width: 32%;
+            
+    }
+
+    .logoimage{
+        width:70%;
+        height:70%;
     }
      
 }

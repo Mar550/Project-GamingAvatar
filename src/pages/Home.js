@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useAppContext } from '../context/app_context';
-import {GiHamburgerMenu} from "react-icons/gi"
+import { GiHamburgerMenu } from "react-icons/gi"
 import cyber from '../assets/cyber.png'
 import gaming from '../assets/gaming.png'
 import player1 from '../assets/player1.png'
@@ -13,9 +13,9 @@ import fleau from '../assets/fleau.png'
 
 
 import 'bootstrap/dist/css/bootstrap.css';
-import {GiBroadsword} from "react-icons/gi";
-import {GiHeavyArrow} from "react-icons/gi";
-import {GiFireAxe} from "react-icons/gi";
+import { GiBroadsword } from "react-icons/gi";
+import { GiHeavyArrow } from "react-icons/gi";
+import { GiFireAxe } from "react-icons/gi";
 
 import ReactDOM from 'react-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
@@ -25,124 +25,129 @@ import { Carousel } from 'react-responsive-carousel';
 
 const Home = () => {
 
-  const {OpenSidebar}= useAppContext();
-  const [value,setValue] = useState(false);
-
- 
-
-      useEffect(() => {
-        if(window.matchMedia("(max-width: 800px)").matches){
-          setValue(true)
-        }
-        else{
-          setValue(false)
-        }
-        
-        
-      }, [value])
-    
-
-  
+  const { OpenSidebar } = useAppContext();
+  const [value, setValue] = useState(false);
 
 
 
-    return (
-        <Wrapper> 
-             
-            <div className="homepage" >
-            <div className={`burgermenu ${value ? "show" : "hide"}`}>
-                    <button className="open-btn" type="button" onClick={OpenSidebar}>
-                          <GiHamburgerMenu/>
-                    </button>
-            </div>
-                <div className="hometext"> 
+  useEffect(() => {
+    if (window.matchMedia("(max-width: 800px)").matches) {
+      setValue(true)
+    }
+    else {
+      setValue(false)
+    }
+
+
+  }, [value])
+
+
+
+
+
+
+  return (
+    <Wrapper>
+      <section className="homepage" >
+          <div className={`burgermenu ${value ? "show" : "hide"}`}>
+            <button className="open-btn" type="button" onClick={OpenSidebar}>
+              <GiHamburgerMenu />
+            </button>
+          </div>
+          <div className="hometext">
             <h1 className="title"> Check out our new avatars </h1>
             <h2> We just released new characters with special designs and features, be among the first to get them now !</h2>
             <button className="btn"> Discover</button>
-                </div>
-            </div>
-
-            <div className="divplayers">
-            <h3> Our new custom players </h3>
-            <hr className="line"></hr>
           </div>
+      </section>
 
-          <Carousel className="carrousel">
-              <div className="divimg">
-                  <img className="imageavatar" src={player1} />
-              </div>
-              <div className="divimg">
-                <img className="imageavatar" src={player2}/>
-              </div>
-              <div className="divimg">
-                <img className="imageavatar" src={player3} />
-              </div>
-            </Carousel> 
-          
+      <section className="avatars">
+        <div className="divplayers">
+          <h3> Our new custom players </h3>
+          <hr className="line"></hr>
+        </div>
+
+        <Carousel className="carrousel">
+          <div className="divimg">
+            <img className="imageavatar" src={player1} />
+          </div>
+          <div className="divimg">
+            <img className="imageavatar" src={player2} />
+          </div>
+          <div className="divimg">
+            <img className="imageavatar" src={player3} />
+          </div>
+        </Carousel>
+      </section>
 
 
-          <div className="card-deck">
-  <div className="card">
-          <img src= {axe}/>
-    <div className="card-body">
-      <h5 className="card-title">The Arche</h5>
-      <p className="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-  </div>
-  <div className="card">
-      <img src= {sword}/>
-    <div className="card-body">
-      <h5 className="card-title">The Sword</h5>
-      <p className="card-text"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-    </div>
+      <section className="card-deck">
 
-  </div>
-  <div className="card">
-    <img src= {fleau}/>
-    <div className="card-body">
-      <h5 className="card-title">Fleau</h5>
-      <p className="card-text"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-    </div>
-
-  </div>
-</div>
-          <div className="joinus">
-            <h2> Join us and get some tips !</h2>
-            <div className ="email">
-            <p className = "contact-text">  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <input className="mail" type="text" value="Enter your e-mail"  />
+          <div className="card">
+            <img src={axe} />
+            <div className="card-body">
+              <h5 className="card-title">Arche</h5>
+              <p className="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
           </div>
-     
-        </Wrapper>
-    )
+          <div className="card">
+            <img src={sword} />
+            <div className="card-body">
+              <h5 className="card-title">Sword</h5>
+              <p className="card-text"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            </div>
+
+          </div>
+          <div className="card">
+            <img src={fleau} />
+            <div className="card-body">
+              <h5 className="card-title">Fleau</h5>
+              <p className="card-text"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            </div>
+        </div>
+      </section>
+
+      <section className="joinus">
+          <h2> Join us and get some tips !</h2>
+          <div className="email">
+            <p className="contact-text">  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <input className="mail" type="text" value="Enter your e-mail" />
+          </div>
+      </section>
+
+    </Wrapper>
+  )
 }
 
 
 const Wrapper = styled.header`
+
 display: flex;
 flex-direction:column;
 justify-content:space-around;
-background-color: black;
+background-color: rgba(0,0,0, 1);
 font-family: 'Electrolize', sans-serif;
 
+.carousel-status{
+  display:none;
+}
 
 ul{
   text-align:center;
 }
 
 .divimg  {
-  width: 800px;
-  height: 1000px;
+  width: 40%;
   display:flex;
-  margin-top: -160px;
-  margin-left: 22%;
+  justify-content:center;
+  margin-left: 30%;
+  margin-top: -10%
 }
 
 .divimg imageavatar{
-  width: 100%;
-  height: auto;
+  width: 40%;
   margin-left:50%;
+  margin-top: -10px;
 }
 
 .open-btn{
@@ -316,6 +321,13 @@ ul.thumbs.animated{
 
 @media screen and (max-width: 768px) {
 
+  .avatars{
+    margin-top:40px;
+  }
+
+  .card-deck{
+    gap: 20px;
+  }
   
   h3{
     font-size:28px;

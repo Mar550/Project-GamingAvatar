@@ -65,10 +65,10 @@ font-family: 'Electrolize', sans-serif;
   }
 
   .imageavatar{
-    margin-top: 10%;
+    margin-top: 20%;
     border:1px solid black;
     width: 100%;
-    height: 100%;
+    height: 550px;
     border-radius: 20px;
     box-shadow: 10px 10px 10px grey;
   }

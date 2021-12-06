@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+
+
+ :root{
+   --font-family--title: 'Luckiest Guy', cursive;
+ }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,11 +20,3 @@ code {
 }
 
 
-@media screen and (max-width: 800px){
-
-  .burgermenu{
-
-    display:block !important;
-  
-  }
-}
